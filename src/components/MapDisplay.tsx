@@ -1,41 +1,66 @@
 import React from 'react';
-// 1. React-Leaflet kütüphanesinden gerekli bileşenleri import ediyoruz
+// Import components from react-leaflet for the map
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// 2. Eczane tipi için import ediyoruz
 import type { Pharmacy } from '../types';
-// 3. Leaflet'in kendi 'koordinat' tipi olan LatLngExpression'ı import ediyoruz
-import type { LatLngExpression } from 'leaflet'; 
+import type { LatLngExpression } from 'leaflet';
 
-// 4. Bileşenin 'pharmacies' adında bir prop (özellik) alacağını belirtiyoruz
+// Import the main Leaflet library to create a custom DivIcon
+import L from 'leaflet';
+// Import ReactDOMServer to render React components into an HTML string
+import ReactDOMServer from 'react-dom/server';
+// Import the icon we want to use for the pins
+import { HiMapPin } from 'react-icons/hi2';
+
 interface MapDisplayProps {
-  pharmacies: Pharmacy[]; // Bu, tüm eczanelerin bir dizisi olacak
+  pharmacies: Pharmacy[];
 }
 
-// 5. Haritanın merkezini belirleyelim (Göttingen şehir merkezi)
+// Set the map's center to Göttingen
 const goettingenCenter: LatLngExpression = [51.5333, 9.9333];
+
+// --- Custom Marker Icon Function ---
+// This function creates our custom-styled marker icon using L.DivIcon
+const createCustomMarkerIcon = () => {
+  return L.divIcon({
+    // Render our React Icon component to an HTML string
+    html: ReactDOMServer.renderToString(
+      <HiMapPin className="text-blue-700 w-10 h-10 drop-shadow-md" />
+    ),
+    // Remove default Leaflet styles (white background/border)
+    className: 'bg-transparent border-0',
+    iconSize: [40, 40],   // Size of the icon
+    iconAnchor: [20, 40], // The "point" of the pin (bottom-center)
+  });
+};
+
+// Create the icon *once* and reuse it for all markers for performance
+const customIcon = createCustomMarkerIcon();
+// --- End Custom Icon ---
+
 
 const MapDisplay: React.FC<MapDisplayProps> = ({ pharmacies }) => {
   return (
-    // 6. MapContainer: Haritanın ana çerçevesi.
-    //    Mutlaka bir yüksekliğe (height) sahip olmalı, yoksa görünmez.
+    // MapContainer: The main wrapper for the map
     <MapContainer 
       center={goettingenCenter} 
-      zoom={13} // Şehir için 13 iyi bir zoom seviyesi
+      zoom={13}
       className="h-full min-h-[400px] w-full rounded-lg shadow-md"
     >
-      {/* 7. TileLayer: Haritanın "desenini" sağlayan katman. OpenStreetMap ücretsizdir. */}
+      {/* TileLayer: The map tiles (e.g., OpenStreetMap) */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       
-      {/* 8. Eczaneler dizisi üzerinde dönüp her biri için bir Marker (Pin) oluşturuyoruz */}
+      {/* Loop through pharmacies and create a Marker for each */}
       {pharmacies.map(pharmacy => (
         <Marker 
           key={pharmacy.id} 
           position={[pharmacy.coordinates.lat, pharmacy.coordinates.lng]}
+          // Use our custom-created icon
+          icon={customIcon}
         >
-          {/* 9. Popup: Pin'e tıklandığında açılan küçük bilgi balonu */}
+          {/* Popup: The info bubble that opens on click */}
           <Popup>
             <strong>{pharmacy.name}</strong>
             <br />
