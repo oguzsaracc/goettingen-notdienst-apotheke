@@ -1,38 +1,65 @@
 {
-  "lastUpdated": "2025-10-30T10:00:00Z",
+  "lastUpdated": "2025-10-31T08:00:00Z",
   "onDuty": [
     {
       "id": 1,
-      "name": "Central-Apotheke",
-      "address": "Weender Straße 75, 37073 Göttingen",
-      "phone": "+49 551 43210",
-      "url": "https://www.central-apotheke-goettingen.de/",
+      "name": "Mittelberg-Apotheke",
+      "address": "Schöneberger Str. 1, 37085 Göttingen",
+      "phone": "+49 551 791744",
+      "url": null,
       "coordinates": {
-        "lat": 51.5340,
-        "lng": 9.9362
-      }
+        "lat": 51.517160964346516,
+        "lng": 9.970999703273874
+      },
+      "onDutySchedule": "Notdienst vom 31.10.2025 um 08:00 Uhr bis 01.11.2025 um 08:00 Uhr."
     },
     {
       "id": 2,
-      "name": "Elch-Apotheke am Bahnhof",
-      "address": "Goethe-Allee 8, 37073 Göttingen",
-      "phone": "+49 551 56055",
-      "url": "https://www.elch-apotheke-goettingen.de/",
+      "name": "Albert-Schweitzer-Apotheke",
+      "address": "Albert-Schweitzer-Weg 9, 37154 Northeim",
+      "phone": "+49 5551 983840",
+      "url": null,
       "coordinates": {
-        "lat": 51.5348,
-        "lng": 9.9295
-      }
+        "lat": 51.729452986951976,
+        "lng": 9.97739494232337
+      },
+      "onDutySchedule": "Notdienst vom 31.10.2025 um 08:00 Uhr bis 01.11.2025 um 08:00 Uhr."
     },
     {
       "id": 3,
-      "name": "Apotheke am Geismar Tor",
-      "address": "Geismar Landstraße 11, 37083 Göttingen",
-      "phone": "+49 551 7707310",
+      "name": "Markt-Apotheke",
+      "address": "Marktstr. 7, 37115 Duderstadt",
+      "phone": "+49 5527 98250",
       "url": null,
       "coordinates": {
-        "lat": 51.5285,
-        "lng": 9.9390
-      }
+        "lat": 51.5124729831347,
+        "lng": 10.256700570740874
+      },
+      "onDutySchedule": "Notdienst vom 31.10.2025 um 09:00 Uhr bis 01.11.2025 um 09:00 Uhr."
+    },
+    {
+      "id": 4,
+      "name": "Apotheke am Holzweg",
+      "address": "Holzweg 3, 37308 Heilbad Heiligenstadt",
+      "phone": "+49 3606 614325",
+      "url": null,
+      "coordinates": {
+        "lat": 51.37537488823665,
+        "lng": 10.13056222470822
+      },
+      "onDutySchedule": "Notdienst vom 31.10.2025 um 08:00 Uhr bis 01.11.2025 um 08:00 Uhr."
+    },
+    {
+      "id": 5,
+      "name": "Privil. Rats-Apotheke",
+      "address": "Lange Str. 24, 37170 Uslar",
+      "phone": "+49 5571 302690",
+      "url": null,
+      "coordinates": {
+        "lat": 51.659281025938824,
+        "lng": 9.635848655405692
+      },
+      "onDutySchedule": "Notdienst vom 31.10.2025 um 08:30 Uhr bis 01.11.2025 um 08:30 Uhr."
     }
   ]
 }

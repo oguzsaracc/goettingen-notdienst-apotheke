@@ -43,7 +43,7 @@ const MapDisplay: React.FC<MapDisplayProps> = ({ pharmacies }) => {
     // MapContainer: The main wrapper for the map
     <MapContainer 
       center={goettingenCenter} 
-      zoom={13}
+      zoom={9}
       className="h-full min-h-[400px] w-full rounded-lg shadow-md"
     >
       {/* TileLayer: The map tiles (e.g., OpenStreetMap) */}

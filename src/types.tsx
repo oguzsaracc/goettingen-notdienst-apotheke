@@ -1,15 +1,15 @@
-// Bu, harita koordinatlarının yapısını tanımlar
+// Defining coordinates
 export interface Coordinates {
   lat: number;
   lng: number;
 }
 
-// Bu, tek bir eczanenin tüm veri yapısını tanımlar
 export interface Pharmacy {
   id: number;
   name: string;
   address: string;
   phone: string;
-  url: string | null; // URL null olabilir
+  url: string | null; // Can be null
   coordinates: Coordinates;
+  onDutySchedule: string;
 }
