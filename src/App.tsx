@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import React from 'react';
-import pharmacyData from './data/pharmacies.json'; // 1. JSON verimizi import ediyoruz
-import PharmacyCard from './components/PharmacyCard'; // 2. Yeni eczane kartı bileşenimizi import ediyoruz
-import type{ Pharmacy } from './types'; // 3. Tip tanımımızı import ediyoruz
+import pharmacyData from './data/pharmacies.json';
+import PharmacyCard from './components/PharmacyCard';
+import MapDisplay from './components/MapDisplay';
+import type { Pharmacy } from './types';
 
 function App() {
   
-  // 4. JSON'dan gelen 'onDuty' dizisini bir değişkene atıyoruz
-  //    TypeScript'e bu dizinin 'Pharmacy' tipinde olduğunu söylüyoruz
   const pharmacies: Pharmacy[] = pharmacyData.onDuty;
   
   return (
@@ -30,20 +29,14 @@ function App() {
           <h2 className="text-xl font-semibold text-gray-800">
             Today's On-Duty Pharmacies
           </h2>
-          {/* Verinin ne zaman güncellendiğini gösterelim */}
           <span className="text-sm text-gray-500">
             Last updated: {new Date(pharmacyData.lastUpdated).toLocaleDateString()}
           </span>
         </div>
         
-        
-        {/* 5. Eczane Listesi */}
-        {/* Burada 'pharmacies' dizisi üzerinde .map() ile dönüyoruz.
-          Her bir 'pharmacy' objesi için bir <PharmacyCard> bileşeni oluşturuyoruz.
-          'key' prop'u React'in listeyi verimli güncellemesi için zorunludur.
-          'pharmacy' prop'u ile de veriyi bileşene aktarıyoruz.
-        */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Sol Sütun: Eczane Listesi */}
           <div className="space-y-4">
             {pharmacies.length > 0 ? (
               pharmacies.map(pharmacy => (
@@ -54,9 +47,9 @@ function App() {
             )}
           </div>
           
-          {/* Harita alanı (şimdilik boş) */}
-          <div className="bg-gray-200 rounded-lg shadow-inner min-h-[300px] md:min-h-full flex items-center justify-center">
-            <p className="text-gray-500">Map will be here (Step 5)</p>
+          {/* Sağ Sütun: Harita */}
+          <div className="h-full w-full">
+            <MapDisplay pharmacies={pharmacies} />
           </div>
           
         </div>
@@ -66,7 +59,7 @@ function App() {
       {/* 3. Footer (Alt Bilgi) */}
       <footer className="bg-gray-800 text-gray-300 text-center p-4 mt-8">
         <div className="container mx-auto">
-          <p>&copy; {new Date().getFullYear()} goettingen-notdienst-apotheke. 
+          <p>© {new Date().getFullYear()} goettingen-notdienst-apotheke. 
             All data provided without guarantee.
           </p>
         </div>
