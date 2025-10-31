@@ -1,0 +1,38 @@
+{
+  "lastUpdated": "2025-10-30T10:00:00Z",
+  "onDuty": [
+    {
+      "id": 1,
+      "name": "Central-Apotheke",
+      "address": "Weender Straße 75, 37073 Göttingen",
+      "phone": "+49 551 43210",
+      "url": "https://www.central-apotheke-goettingen.de/",
+      "coordinates": {
+        "lat": 51.5340,
+        "lng": 9.9362
+      }
+    },
+    {
+      "id": 2,
+      "name": "Elch-Apotheke am Bahnhof",
+      "address": "Goethe-Allee 8, 37073 Göttingen",
+      "phone": "+49 551 56055",
+      "url": "https://www.elch-apotheke-goettingen.de/",
+      "coordinates": {
+        "lat": 51.5348,
+        "lng": 9.9295
+      }
+    },
+    {
+      "id": 3,
+      "name": "Apotheke am Geismar Tor",
+      "address": "Geismar Landstraße 11, 37083 Göttingen",
+      "phone": "+49 551 7707310",
+      "url": null,
+      "coordinates": {
+        "lat": 51.5285,
+        "lng": 9.9390
+      }
+    }
+  ]
+}
