@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Pharmacy } from '../types';
 
-// Import modern icons (HiClock YENİ eklendi)
+// Import modern icons
 import { HiMapPin, HiPhone, HiArrowTopRightOnSquare, HiGlobeAlt, HiClock } from 'react-icons/hi2';
 
 // Helper function to generate Google Maps link (Corrected Version)
@@ -39,14 +39,12 @@ const PharmacyCard: React.FC<Props> = ({ pharmacy }) => {
           </a>
         </div>
 
-        {/* --- YENİ BÖLÜM: NÖBET SAATLERİ --- */}
         {pharmacy.onDutySchedule && (
           <div className="flex items-center text-blue-700 font-medium text-sm p-3 bg-blue-50 border border-blue-200 rounded-lg mb-4">
             <HiClock className="w-5 h-5 mr-2 flex-shrink-0" />
             <span>{pharmacy.onDutySchedule}</span>
           </div>
         )}
-        {/* --- BİTTİ --- */}
         
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-3">

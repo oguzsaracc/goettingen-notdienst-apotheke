@@ -1,4 +1,3 @@
-import React from 'react';
 import pharmacyData from './data/pharmacies.json';
 import PharmacyCard from './components/PharmacyCard';
 import MapDisplay from './components/MapDisplay';
